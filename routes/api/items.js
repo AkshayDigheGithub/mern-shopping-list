@@ -1,7 +1,6 @@
 const express = require('express');
-const router = express.Router();
-
 const Item = require('../../models/Item');
+const router = express.Router();
 
 router.get('/', (req, res) => {
     Item.find()
@@ -18,13 +17,13 @@ router.get('/', (req, res) => {
     newItem.save().then(item => res.json(item));
   });
   
-  router.post('/add', (req, res) => {
+  /* router.post('/add', (req, res) => {
     let item = {name: "Trump"}
     Item.create(item, (err, item) => {
         if(err) return res.status(500).json({error: err});
         else return res.json({message: "Item Added", item: item});            
     })
-})
+}) */
 
   router.delete('/:id', (req, res) => {
     Item.findById(req.params.id)

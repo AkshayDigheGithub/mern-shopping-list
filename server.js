@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const Item = require('./models/Item');
-
 const items = require('./routes/api/items');
 
 const app = express();
