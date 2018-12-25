@@ -1,40 +1,35 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { getItems, delItem } from '../actions/itemActions';
 //import { getItems, deleteItem } from '../actions/itemActions';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 //import uuid from './uuid';
 
 class ShoppingList extends Component {
-    state = {
-        items: [
-            {id: Math.floor(Math.random() * 10 + 1), name: "Eggs"},
-            {id: Math.floor(Math.random() * 10 + 1), name: "Milk"},
-            {id: Math.floor(Math.random() * 10 + 1), name: "Steak"},
-            {id:Math.floor(Math.random() * 10 + 1), name: "Water"}
-        ]
+
+    componentDidMount(){
+      this.props.getItems();  
     }
 
  delItem = (id) => () => {
-  this.setState(state=>({
-    items: state.items.filter(item=>item.id!==id)
-  }));
+    this.props.delItem(id);
  }
 
   render() {
     // const { items } = this.props.item;
-    const { items } = this.state;
+    const { items } = this.props.item;
     return (
       <Container>
         <Button
         color="dark"
         style={{marginBottom: "2rem"}}
         onClick = { () => {
-                const name = prompt("enter name...");                        
+                const name = prompt("Enter Name...");                        
                 if(name) {
                   this.setState(state => ({
-                    items: [...state.items, {id:Math.floor(Math.random() * 10 + 1), name:name} ]
+                    items: [...state.items, {id:Math.floor(Math.random() * 50 + 1), name:name}]
                   }));
                 }
             }}
@@ -65,12 +60,18 @@ class ShoppingList extends Component {
   }
 }
 
-export default ShoppingList;
-
-/* ShoppingList.propTypes = {
+ShoppingList.propTypes = {
   getItems: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired
-}; */
+};
+
+const mapStateToProps = (state) => ({
+  item:state.item
+});
+
+export default connect(mapStateToProps, {getItems,delItem})(ShoppingList);
+
+
 
 /* const mapStateToProps = state => ({
   item: state.item
