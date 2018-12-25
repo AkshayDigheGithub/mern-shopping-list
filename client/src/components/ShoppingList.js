@@ -22,20 +22,7 @@ class ShoppingList extends Component {
     const { items } = this.props.item;
     return (
       <Container>
-        <Button
-        color="dark"
-        style={{marginBottom: "2rem"}}
-        onClick = { () => {
-                const name = prompt("Enter Name...");                        
-                if(name) {
-                  this.setState(state => ({
-                    items: [...state.items, {id:Math.floor(Math.random() * 50 + 1), name:name}]
-                  }));
-                }
-            }}
-        >
-          Add Item
-        </Button>
+        
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map(({ id, name }) => (
