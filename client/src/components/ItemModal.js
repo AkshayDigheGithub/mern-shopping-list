@@ -25,7 +25,7 @@ class ItemModal extends Component {
     };
 
     onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({[e.target.name]: e.target.value });
     };
 
     onSubmit = (e) => {
@@ -41,18 +41,12 @@ class ItemModal extends Component {
   render() {
     return (
       <div>
-        <Button
-            color="dark"
-            style={{marginBottom: '2rem'}}
-            onClick={this.toggle}
-        >
+        <Button color="dark" style={{marginBottom: '2rem'}} onClick={this.toggle}>        
             Add Item
         </Button>
 
-        <Modal
-            isOpen={this.state.modal}
-            toggle={this.toggle}
-        >
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>        
+        
             <ModalHeader toggle={this.toggle}>Add-Shopping List</ModalHeader>
                 <ModalBody>
                     <Form onSubmit={this.onSubmit}>
@@ -71,8 +65,7 @@ class ItemModal extends Component {
                             </Button>
                         </FormGroup>
                     </Form>
-                </ModalBody>               
-             
+                </ModalBody>             
         </Modal>
       </div>
     )

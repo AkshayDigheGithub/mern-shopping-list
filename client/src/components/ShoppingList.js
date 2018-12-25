@@ -21,8 +21,7 @@ class ShoppingList extends Component {
     // const { items } = this.props.item;
     const { items } = this.props.item;
     return (
-      <Container>
-        
+      <Container>        
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map(({ id, name }) => (
@@ -57,14 +56,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {getItems,delItem})(ShoppingList);
-
-
-
-/* const mapStateToProps = state => ({
-  item: state.item
-}); */
-
-/* export default connect(
-  mapStateToProps,
-  { getItems, deleteItem }
-)(ShoppingList); */
