@@ -1,13 +1,9 @@
-import { GET_ITEMS, DELETE_ITEM, ADD_ITEM } from '../actions/types';
+import { GET_ITEMS, DELETE_ITEM, ADD_ITEM, ITEMS_LOADING } from '../actions/types';
 
   
   const initialState = {
-    items: [
-      {id: Math.floor(Math.random() * 10 + 1), name: "Eggs"},
-      {id: Math.floor(Math.random() * 20 + 1), name: "Milk"},
-      {id: Math.floor(Math.random() * 30 + 1), name: "Steak"},
-      {id:Math.floor(Math.random() * 40 + 1), name: "Candy"}
-    ]
+    items: [],
+    loading: false
   };
   
 export default function(state = initialState, action) {
@@ -25,6 +21,11 @@ export default function(state = initialState, action) {
         return {
           ...state,
           items: [action.payload, ...state.items]
+        }
+      case ITEMS_LOADING:
+        return {
+          ...state,
+          loading: true
         }
     
     default:

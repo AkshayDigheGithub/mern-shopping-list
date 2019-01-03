@@ -26,6 +26,7 @@ class ItemModal extends Component {
 
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value });
+        console.log(e.target.value)
     };
 
     onSubmit = (e) => {
@@ -48,24 +49,24 @@ class ItemModal extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>        
         
             <ModalHeader toggle={this.toggle}>Add-Shopping List</ModalHeader>
-                <ModalBody>
-                    <Form onSubmit={this.onSubmit}>
-                        <FormGroup>
-                            <Label for="item">Item</Label>
-                            <Input
-                                type="text"
-                                name="name"
-                                id="item"
-                                placeholder="Add Item"
-                                onChange={this.onChange}
-                            >                            
-                            </Input>
-                            <Button color="dark" style={{marginTop: '2rem'}} block>                               
-                                Add Item
-                            </Button>
-                        </FormGroup>
-                    </Form>
-                </ModalBody>             
+              <ModalBody>
+                <Form onSubmit={this.onSubmit}>
+                  <FormGroup>
+                    <Label for="item">Item</Label>
+                    <Input
+                        type="text"
+                        name="name"
+                        id="item"
+                        placeholder="Add Item"
+                        onChange={this.onChange}
+                    >                            
+                    </Input>
+                    <Button color="dark" style={{marginTop: '2rem'}} block>                               
+                        Add Item
+                    </Button>
+                  </FormGroup>
+                </Form>
+              </ModalBody>             
         </Modal>
       </div>
     )

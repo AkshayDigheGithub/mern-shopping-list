@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import rootReducer from './reducers/index';
 
 const initialState = {};
 
@@ -15,4 +15,4 @@ const store = createStore(
     )
   );
   
-  export default store;
+export default store;

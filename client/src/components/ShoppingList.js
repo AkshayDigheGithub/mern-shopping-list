@@ -3,9 +3,9 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, delItem } from '../actions/itemActions';
-//import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
-//import uuid from './uuid';
+import ItemModal from './ItemModal';
+
 
 class ShoppingList extends Component {
 
@@ -13,15 +13,16 @@ class ShoppingList extends Component {
       this.props.getItems();  
     }
 
- delItem = (id) => () => {
-    this.props.delItem(id);
- }
+    delItem = (id) => () => {
+        this.props.delItem(id);
+    }
 
   render() {
     // const { items } = this.props.item;
     const { items } = this.props.item;
     return (
-      <Container>        
+      <Container>
+      <ItemModal />        
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map(({ id, name }) => (
