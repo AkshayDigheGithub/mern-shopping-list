@@ -10,7 +10,8 @@ const UserSchema = new Schema({
     },
     password:{
         type:String,
-        required: true,
+        required: [true, "Passwword Is Required"],
+        minlength: [6, "Passwords Must Be At Least 6 Characters!"],
         bcrypt: true
     }    
 }); // end UserSchema
