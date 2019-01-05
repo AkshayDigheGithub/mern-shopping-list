@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const Item = require('./models/Item');
 const items = require('./routes/api/items');
-
+const users = require('./routes/api/users');
 const app = express();
 
 // Bodyparser Middleware
@@ -25,6 +24,7 @@ app.use(cors());
 
 // Use Routes
 app.use('/api/items', items);
+app.use('/api/users', users);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

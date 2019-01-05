@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
   });
   
   /* router.post('/add', (req, res) => {
-    let item = {name: "Trump"}
+    let item = {name: "Kavanagh"}
     Item.create(item, (err, item) => {
         if(err) return res.status(500).json({error: err});
         else return res.json({message: "Item Added", item: item});            
